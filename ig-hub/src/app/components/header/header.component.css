@@ -1,0 +1,81 @@
+/* General Styling */
+body {
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  background-color: #f2ecbe; /* Light background color */
+}
+
+/* Navbar */
+.navbar {
+  background-color: #9a3b3b; /* Rich dark red for navbar background */
+  padding: 1rem;
+}
+
+.navbar-brand {
+  color: #f2ecbe; /* Light color for the brand name */
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.navbar-brand:hover {
+  color: #e2c799; /* Highlight effect on hover */
+}
+
+.navbar-nav {
+  margin-left: auto; /* Align links to the right */
+}
+
+.nav-link {
+  color: #f2ecbe; /* Light text for links */
+  font-size: 1rem;
+  margin: 0 0.5rem;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px; /* Rounded corners for hover effect */
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: #c08261; /* Soft muted red on hover */
+  color: #f2ecbe; /* Maintain light text color */
+}
+
+.nav-link.active {
+  background-color: #e2c799; /* Active link background color */
+  color: #9a3b3b; /* Dark red text for active link */
+  font-weight: bold;
+}
+
+/* Exclude Home link from active highlight */
+.nav-link:not(:first-child) {
+  color: #f2ecbe;
+}
+
+.nav-link.active:not(.home-page) {
+  background-color: #e2c799; /* Active link background color */
+  color: #9a3b3b; /* Dark red text for active link */
+  font-weight: bold;
+}
+
+/* Navbar Toggler */
+.navbar-toggler {
+  border: 1px solid #f2ecbe; /* Light border for visibility */
+}
+
+.navbar-toggler-icon {
+  background-image: linear-gradient(
+    #f2ecbe,
+    #f2ecbe
+  ); /* Light color for toggler icon */
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 768px) {
+  .navbar-nav {
+    text-align: center;
+  }
+
+  .nav-link {
+    margin: 0.5rem 0;
+  }
+}
