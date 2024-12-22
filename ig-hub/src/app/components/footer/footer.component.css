@@ -1,0 +1,42 @@
+/* General Footer Styling */
+.footer {
+  background-color: #9a3b3b; /* Dark red background */
+  color: #faf7f0; /* Light text color */
+  padding: 2rem 0;
+}
+
+.footer h5 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.footer p {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
+
+.footer-links {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+  color: #faf7f0; /* Light color */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #c08261; /* Highlight color on hover */
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: #e2c799; /* Light yellowish color */
+}
