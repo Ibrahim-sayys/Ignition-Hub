@@ -1,1 +1,52 @@
-<p>admin works!</p>
+<div class="admin-panel">
+  <h1>Admin Panel</h1>
+  <form (ngSubmit)="addCar()" class="car-form">
+    <h2>Add New Car</h2>
+    <input
+      type="text"
+      placeholder="Car Name"
+      [(ngModel)]="newCar.name"
+      name="name"
+      required
+    />
+    <input
+      type="text"
+      placeholder="Model"
+      [(ngModel)]="newCar.model"
+      name="model"
+      required
+    />
+    <select [(ngModel)]="newCar.brand" name="brand" required>
+      <option value="" disabled selected>Select Brand</option>
+      <option *ngFor="let brand of brands">{{ brand }}</option>
+    </select>
+    <select [(ngModel)]="newCar.status" name="status" required>
+      <option value="" disabled selected>Status</option>
+      <option value="new">New</option>
+      <option value="used">Used</option>
+    </select>
+    <input
+      type="number"
+      placeholder="Price"
+      [(ngModel)]="newCar.price"
+      name="price"
+      required
+    />
+    <input type="file" (change)="onImageSelect($event)" />
+    <button type="submit" class="add-car-btn">Add Car</button>
+  </form>
+
+  <h2>Existing Cars</h2>
+  <div *ngIf="cars.length === 0">No cars available.</div>
+  <ul>
+    <li *ngFor="let car of cars; let i = index">
+      <img [src]="car.image" alt="Car Image" class="car-image" />
+      <div>
+        <strong>{{ car.name }}</strong> - {{ car.brand }} ({{ car.model }}) -
+        {{ car.status }}
+        <span>Price: ${{ car.price }}</span>
+        <button class="remove-btn" (click)="removeCar(i)">Remove</button>
+      </div>
+    </li>
+  </ul>
+</div>
