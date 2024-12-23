@@ -1,1 +1,28 @@
-<p>catagories works!</p>
+<div class="categories-section">
+  <h1>Car Categories</h1>
+  <div class="filters">
+    <select [(ngModel)]="filters.brand" (change)="applyFilters()">
+      <option value="">All Brands</option>
+      <option *ngFor="let brand of brands">{{ brand }}</option>
+    </select>
+    <select [(ngModel)]="filters.status" (change)="applyFilters()">
+      <option value="">All</option>
+      <option value="new">New</option>
+      <option value="used">Used</option>
+    </select>
+    <button (click)="clearFilters()">Clear All Filters</button>
+  </div>
+
+  <div *ngIf="filteredCars.length === 0" class="no-cars">No cars found.</div>
+  <ul>
+    <li *ngFor="let car of filteredCars">
+      <img [src]="car.image" alt="Car Image" class="car-image" />
+      <div>
+        <strong>{{ car.name }}</strong> - {{ car.brand }} ({{ car.model }}) -
+        {{ car.status }}
+        <span>Price: ${{ car.price }}</span>
+        <button class="buy-btn" (click)="buyCar(car)">Buy Now</button>
+      </div>
+    </li>
+  </ul>
+</div>
