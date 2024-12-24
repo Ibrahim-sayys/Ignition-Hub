@@ -15,6 +15,9 @@ export class CatagoriesComponent {
   filteredCars: any[] = [];
   filters = { brand: '', status: '' };
   brands: string[] = [];
+  showBuyForm = false;
+  selectedCar: any = null;
+  buyerDetails = { name: '', age: null, id: '' };
 
   constructor(private carService: CarService) {
     this.carService.cars$.subscribe((data) => {
@@ -37,8 +40,21 @@ export class CatagoriesComponent {
     this.filteredCars = [...this.cars];
   }
 
-  buyCar(car: any) {
-    alert(`${car.name} purchased successfully!`);
-    this.carService.removeCarByName(car.name);
+  openBuyForm(car: any) {
+    this.selectedCar = car;
+    this.showBuyForm = true;
+  }
+
+  closeBuyForm() {
+    this.showBuyForm = false;
+    this.buyerDetails = { name: '', age: null, id: '' };
+  }
+
+  submitBuyForm() {
+    alert(
+      `${this.buyerDetails.name}, your purchase of ${this.selectedCar.name} was successful!`
+    );
+    this.carService.removeCarByName(this.selectedCar.name);
+    this.closeBuyForm();
   }
 }
