@@ -21,8 +21,46 @@
         <strong>{{ car.name }}</strong> - {{ car.brand }} ({{ car.model }}) -
         {{ car.status }}
         <span>Price: ${{ car.price }}</span>
-        <button class="buy-btn" (click)="buyCar(car)">Buy Now</button>
+        <button class="buy-btn" (click)="openBuyForm(car)">Buy Now</button>
       </div>
     </li>
   </ul>
+
+  <!-- Modal for Buy Form -->
+  <div class="buy-form-modal" *ngIf="showBuyForm">
+    <div class="buy-form">
+      <h2>Buy Car</h2>
+      <form (submit)="submitBuyForm()">
+        <label for="buyerName">Name:</label>
+        <input
+          type="text"
+          id="buyerName"
+          [(ngModel)]="buyerDetails.name"
+          name="buyerName"
+          required
+        />
+
+        <label for="buyerAge">Age:</label>
+        <input
+          type="number"
+          id="buyerAge"
+          [(ngModel)]="buyerDetails.age"
+          name="buyerAge"
+          required
+        />
+
+        <label for="buyerId">ID Number:</label>
+        <input
+          type="text"
+          id="buyerId"
+          [(ngModel)]="buyerDetails.id"
+          name="buyerId"
+          required
+        />
+
+        <button type="submit">Submit</button>
+        <button type="button" (click)="closeBuyForm()">Cancel</button>
+      </form>
+    </div>
+  </div>
 </div>
