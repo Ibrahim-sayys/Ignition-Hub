@@ -1,1 +1,93 @@
-<p>contact works!</p>
+<div class="container">
+  <h2 class="text-center">Contact Us</h2>
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input
+        type="text"
+        id="name"
+        class="form-control"
+        formControlName="name"
+        placeholder="Enter your full name"
+      />
+      <div
+        *ngIf="
+          contactForm.get('name')?.invalid && contactForm.get('name')?.touched
+        "
+        class="text-danger"
+      >
+        Please enter a valid name (letters and spaces only).
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="age" class="form-label">Age</label>
+      <input
+        type="number"
+        id="age"
+        class="form-control"
+        formControlName="age"
+        placeholder="Enter your age"
+      />
+      <div
+        *ngIf="
+          contactForm.get('age')?.invalid && contactForm.get('age')?.touched
+        "
+        class="text-danger"
+      >
+        Age must be greater than 0.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="idNumber" class="form-label">ID Number</label>
+      <input
+        type="text"
+        id="idNumber"
+        class="form-control"
+        formControlName="idNumber"
+        placeholder="Enter your ID number"
+      />
+      <div
+        *ngIf="
+          contactForm.get('idNumber')?.invalid &&
+          contactForm.get('idNumber')?.touched
+        "
+        class="text-danger"
+      >
+        Please enter a valid numeric ID.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="query" class="form-label">Query</label>
+      <textarea
+        id="query"
+        class="form-control"
+        formControlName="query"
+        rows="4"
+        placeholder="Enter your query"
+      ></textarea>
+      <div
+        *ngIf="
+          contactForm.get('query')?.invalid && contactForm.get('query')?.touched
+        "
+        class="text-danger"
+      >
+        Query cannot be empty.
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="!contactForm.valid"
+    >
+      Submit
+    </button>
+  </form>
+
+  <div *ngIf="messageSent" class="alert alert-success mt-3" role="alert">
+    Message sent successfully!
+  </div>
+</div>
