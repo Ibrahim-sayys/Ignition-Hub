@@ -1,0 +1,40 @@
+/* General Styling */
+body {
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  background-color: #f2ecbe; /* Light background color */
+}
+
+.carousel-section {
+  /* margin: 2rem auto; */
+  max-width: 100%;
+}
+
+.carousel-inner img {
+  max-height: 800px;
+  object-fit: cover;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-size: contain;
+  width: 2rem;
+  height: 2rem;
+}
+
+.carousel-control-prev-icon:before,
+.carousel-control-next-icon:before {
+  font-family: "Bootstrap Icons";
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .carousel-inner img {
+    height: 300px; /* Reduce image height for smaller screens */
+  }
+}
